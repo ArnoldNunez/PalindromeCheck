@@ -1,6 +1,5 @@
 # PalindromeCheck
-Program to check whether two words are palindromes
+Program to check whether a string is a palindrome
 
 #Task
-+Create a C/C++ program that will take 2 words as input and determine whether they are palindromes of eachother
-+Implement Unit testing on this program
++Create a C/C++ program that will take a string as an input and check whether that string is a palindrome
