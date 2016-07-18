@@ -1,12 +1,21 @@
+/**
+ * \file PalindromeCheck.h
+ *
+ * \author Arnold Nunez
+ *
+ * \brief This is where our palindrome functions will go
+ */
+
 #pragma once
 
 #include <algorithm>
 #include <string>
 #include <iostream>
+#include <cctype>
 
 
-namespace Palindrome {
-
+namespace Palindrome 
+{
 	/**
 	* Checks whether two strings are palindromes of eachother
 	* \param str1 The first string
@@ -15,13 +24,18 @@ namespace Palindrome {
 	*/
 	bool PalindromeCheck(std::string str1)
 	{
-		std::string reversed;
+		int len = str1.length();	///< The length of the string
 
-		/// Once they are sorted, if the strings are palindromes
-		/// They will have the same sorted sequence of chars
-		for (size_t i = 0; i < str1.length(); ++i)
-		{
-
+		
+		for (int i = 0; i < len; ++i)
+		{	
+			/// We dont care about case
+			if (tolower(str1[i]) != tolower(str1[len - 1 - i]))
+			{
+				/// Not palindromes
+				return false;
+			}
+			
 		}
 
 		return true;
@@ -33,34 +47,33 @@ namespace Palindrome {
 	*/
 	std::string GetValidInput(std::string charset)
 	{
-		std::string input;
+		std::string input;		///< The input
 
-		std::cout << "Provide a string: ";
+		std::cout << "Provide a word: ";
 		std::cin >> input;
+		std::cin.clear();
+		std::cin.ignore(10000, '\n');
+		
 
 		/// We want to continously check until we get a valid string
 		while (true) {
-
 			if (input.find_first_not_of(charset) != std::string::npos)
 			{
 				/// Found invalid character
-				std::cout << "Found invalid character" << std::endl;
-				std::cout << "Provide a string without special characters or numbers:" << std::endl;
+				std::cout << "----Error: Found invalid character-----" << std::endl;
+				std::cout << "Provide a string without special characters or numbers:";
 				std::cin >> input;
+				std::cin.clear();
+				std::cin.ignore(10000, '\n');
 			}
 			else
 			{
 				/// String is valid
 				return input;
 			}
-
-
 		}
-
-		return "";
+		
 	}
-
-
-
-
+	
+	
 }

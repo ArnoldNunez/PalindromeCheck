@@ -9,11 +9,7 @@
 
 using namespace Palindrome;
 
-/** The entry point of our program
- *
- * \param argc The count of arguments passed in
- * \param argv The array of the arguments
- */
+/** The entry point of our program */
 int main(int argc, char* argv[])
 {
 	bool exit = false;		///< The program exit flag
@@ -29,11 +25,13 @@ int main(int argc, char* argv[])
 
 		if (!PalindromeCheck(in1))
 		{
-			std::cout << "Not Palindromes" << std::endl;
+			std::cout << in1 << " Is Not a palindrome" << std::endl;
+			std::cout << std::endl;
 		}
 		else
 		{
-			std::cout << "They are Palindromes" << std::endl;
+			std::cout << in1 << " Is a palindrome" << std::endl;
+			std::cout << std::endl;
 		}
 
 	}
