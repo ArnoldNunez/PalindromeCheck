@@ -1,5 +1,5 @@
 # PalindromeCheck
-Program to check whether a word is a palindrome
+C++ Program to check whether a word is a palindrome
 
 # Background
 from wiki:
