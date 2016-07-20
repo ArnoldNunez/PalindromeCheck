@@ -44,12 +44,13 @@ namespace Palindrome
 	/**
 	* Checks whether we have received a valid string
 	* \param charset
+	* return input The valid input or 'Q' which is quit
 	*/
 	std::string GetValidInput(std::string charset)
 	{
 		std::string input;		///< The input
 
-		std::cout << "Provide a word: ";
+		std::cout << "Provide a word or enter 'Q' to quit: ";
 		std::cin >> input;
 		std::cin.clear();
 		std::cin.ignore(10000, '\n');
@@ -57,7 +58,12 @@ namespace Palindrome
 
 		/// We want to continously check until we get a valid string
 		while (true) {
-			if (input.find_first_not_of(charset) != std::string::npos)
+			
+			if (input == "Q") {
+				/// User wants to quit
+				return input;
+			}
+			else if (input.find_first_not_of(charset) != std::string::npos)
 			{
 				/// Found invalid character
 				std::cout << "----Error: Found invalid character-----" << std::endl;
@@ -71,6 +77,7 @@ namespace Palindrome
 				/// String is valid
 				return input;
 			}
+			
 		}
 		
 	}

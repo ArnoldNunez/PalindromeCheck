@@ -20,10 +20,14 @@ int main(int argc, char* argv[])
 
 	while (!exit)
 	{
-		/// These get the inputs and do error checking
+		/// Get the input and do error checking
 		in1 = GetValidInput(validChars);
-
-		if (!PalindromeCheck(in1))
+		
+		/// Q means user requested to quit
+		if (in1 == "Q") {
+			return 0;
+		}
+		else if (!PalindromeCheck(in1))
 		{
 			std::cout << in1 << " Is Not a palindrome" << std::endl;
 			std::cout << std::endl;
